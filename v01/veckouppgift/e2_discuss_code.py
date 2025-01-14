@@ -4,7 +4,7 @@ Rätta eventuella fel. Vad gör koden?
 x = 100  # biljettpris
 y = 200  # pengar på fickan
 print("Det blir " + (y - x) " kronor över.") <-- fel
-z = 200 - 100 / 2
+z = 200 - 100 / 2 <-- missade detta, oklart
 print("Hälften är: " + z) <-- fel
 ---
 Kom på bättre namn, i stället för x, y och z.
@@ -27,6 +27,6 @@ money_on_hand = 200  # pengar på fickan
 print(f"Det blir {money_on_hand - ticket_price } kronor över.")
 
 # z -> number
-number = 200 - 100 / 2
+number = (200 - 100) / 2
 print("Hälften är: ", number)
 
