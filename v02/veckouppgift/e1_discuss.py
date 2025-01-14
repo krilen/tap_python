@@ -1,9 +1,7 @@
-
-is_member = False
-level1 = 100
-level2 = 300
-discount = 0
 """
+Ni kan göra den här uppgiften antingen direkt, eller senare i veckan. Om ni gör den senare,
+passa på att kombinera med code review.
+
 1. Vad är syftet med koden?
    > Ange ett pris och få ut ett nytt pris med eventuell rabatt
 2. Testkör koden med några olika värden.
@@ -21,6 +19,11 @@ discount = 0
      * Endast output om rabatt om det blir rabatt.
         - ytterligare if stats om 'discount > 0'
 """
+
+is_member = False
+level1 = 100
+level2 = 300
+discount = 0
 
 price = input("Välkommen, köp något dyrt, ange ett pris (kr): ")
 price = float(price)
