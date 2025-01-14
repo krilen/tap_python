@@ -45,9 +45,17 @@ if tottenham == liverpool:
 
 else:
     goal_diff = abs(tottenham -liverpool)
-    output_tmpl = "{} won with {} goal{}!"
+    output_tmpl = "{} won the game with {} goal{}!"
 
     if tottenham > liverpool:
         print(output_tmpl.format("Tottenham", goal_diff, "s" if goal_diff > 1 else ""))
     else:
         print(output_tmpl.format("Liverpool", goal_diff, "s" if goal_diff > 1 else ""))
+        
+"""
+Code review, 2025jan14 (med Rasmus och Rebecca)
+ * Noterat s i goals vi plural vinst
+ * Nja..., ingen speciellt lite överkomplicerat för uppgiften
+ * Bra att de olika stegen bryts ner
+
+"""

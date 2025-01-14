@@ -32,11 +32,18 @@ OUTPUT_INVALID_LENGTH = "You are NOT able to go on the ride!"
 try:
     riders_length = int(input("How tall are you (in cm)? >> "))
 
+except:
+    print("That was not a valid length!")
+    print(OUTPUT_INVALID_LENGTH)
+    
+else:
     if riders_length >= 130:
         print(OUTPUT_VALID_LENGTH)
     else:
         print(OUTPUT_INVALID_LENGTH)
 
-except:
-    print("That was not a valid length!")
-    print(OUTPUT_INVALID_LENGTH)
+"""
+Code review, 2025jan14 (med Rasmus och Rebecca)
+ * Kort och gott inget överflödigt
+
+"""
