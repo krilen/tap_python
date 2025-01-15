@@ -30,7 +30,7 @@ Förslag på värden att testa med:
 
 """
 
-# Func to convert scale with the sting of the scale
+# Func to convert scale and return it with the string of the scale
 def convert_degrees(degree, scale):
     
     # Converting FROM not to
@@ -75,6 +75,3 @@ if (converted_scale == "Celsius" and converted_temp < 10) or (temp < 10 and temp
 # Summer, from Celcius or to Celcius
 if (converted_scale == "Celsius" and converted_temp > 20) or (temp > 10 and temp_scale == "c"):
     print("Remember the bathing suit.")
-
-    
-        
