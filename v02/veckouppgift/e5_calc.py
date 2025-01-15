@@ -42,19 +42,19 @@ while True:
     
 print(f"\nSum of: {num_1} + {num_2} + {num_3} is {num_1 +num_2 +num_3}.\n")
 
-biggest = None
+biggest_num = None
 
 if num_1 > num_2 and num_1 > num_3:
     print(f"{num_1} (Number 1) is the biggest number")
-    biggest = num_1
+    biggest_num = num_1
     
 elif num_2 > num_3 and num_2 > num_1:
     print(f"{num_2} (Number 2) is the biggest number")
-    biggest = num_2
+    biggest_num = num_2
     
 else:
     print(f"{num_3} (Number 3) is the biggest number")
-    biggest = num_3
+    biggest_num = num_3
 
 print()
 
@@ -68,10 +68,10 @@ elif num_1 == num_2 or num_1 == num_3 or num_2 == num_3:
     different = False
     
 if different:
-    if (num_1 == biggest and num_2 > num_3) or (num_3 == biggest and num_2 > num_1):
+    if (num_1 == biggest_num and num_2 > num_3) or (num_3 == biggest_num and num_2 > num_1):
         print(f"{num_2} (Number 2) is in the middle")
         
-    elif (num_2 == biggest and num_3 > num_1) or (num_1 == biggest and num_3 > num_2):
+    elif (num_2 == biggest_num and num_3 > num_1) or (num_1 == biggest_num and num_3 > num_2):
         print(f"{num_3} (Number 3) is in the middle")
         
     else:
