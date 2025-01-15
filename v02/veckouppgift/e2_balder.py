@@ -30,9 +30,9 @@ OUTPUT_VALID_LENGTH = "You are able to go on the ride"
 OUTPUT_INVALID_LENGTH = "You are NOT able to go on the ride!"
 
 try:
-    riders_length = int(input("How tall are you (in cm)? >> "))
+    riders_length = float(input("How tall are you (in cm)? >> "))
 
-except:
+except ValueError:
     print("That was not a valid length!")
     print(OUTPUT_INVALID_LENGTH)
     
@@ -45,5 +45,8 @@ else:
 """
 Code review, 2025jan14 (med Rasmus och Rebecca)
  * Kort och gott inget överflödigt
+ 
+After the review I went over the code and chnage the input coversion 
+from 'int' to 'float' to also be able to convert "131.5" to a number
 
 """
