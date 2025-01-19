@@ -26,11 +26,11 @@ Diskutera:
      
 """
 
-OUTPUT_VALID_LENGTH = "You are able to go on the ride"
-OUTPUT_INVALID_LENGTH = "You are NOT able to go on the ride!"
+OUTPUT_VALID_LENGTH: str = "You are able to go on the ride"
+OUTPUT_INVALID_LENGTH: str = "You are NOT able to go on the ride!"
 
 try:
-    riders_length = float(input("How tall are you (in cm)? >> "))
+    riders_length:float = float(input("How tall are you (in cm)? >> "))
 
 except ValueError:
     print("That was not a valid length!")

@@ -31,7 +31,7 @@ Förslag på värden att testa med:
 """
 
 # Func to convert scale and return it with the string of the scale
-def convert_degrees(degree, scale):
+def convert_degrees(degree: int, scale: str) -> tuple[int, str]:
     
     # Converting FROM not to
     # For Farenehit you will get Celsius 
@@ -43,7 +43,7 @@ def convert_degrees(degree, scale):
 
 # Valid scale
 while True:
-    temp_scale = input("What temperature scale would you like use Celsius (c) or Farenheit (f)? >> ").casefold()
+    temp_scale: str = input("What temperature scale would you like use Celsius (c) or Farenheit (f)? >> ").casefold()
 
     if temp_scale == "c" or temp_scale == "f":
         break
@@ -52,11 +52,11 @@ while True:
 
 
 # Valid temperature
-INPUT_TEMP = "For degrees in {} enter a temperature in {} >> "
+INPUT_TEMP: str = "For degrees in {} enter a temperature in {} >> "
 
 while True:
     try:
-        temp = int(input(INPUT_TEMP.format("Celcius" if temp_scale == "f" else "Farenheit",
+        temp: int = int(input(INPUT_TEMP.format("Celcius" if temp_scale == "f" else "Farenheit",
                                        "Celsius" if temp_scale == "c" else "Farenheit")))
     
     except ValueError:

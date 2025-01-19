@@ -30,8 +30,8 @@ print("The game is over, let's see who won!")
 while True:
     
     try:
-        tottenham = int(input("How many goals did Tottenham do? >> "))
-        liverpool = int(input("How many goals did Liverpool do? >> "))
+        tottenham: int = int(input("How many goals did Tottenham do? >> "))
+        liverpool: int = int(input("How many goals did Liverpool do? >> "))
     
     except ValueError:
         print("Something went wrong with the input, try again")
@@ -44,8 +44,8 @@ if tottenham == liverpool:
     print("The game was a draw")
 
 else:
-    goal_diff = abs(tottenham -liverpool)
-    output_tmpl = "{} won the game with {} goal{}!"
+    goal_diff: int = abs(tottenham -liverpool)
+    output_tmpl: str = "{} won the game with {} goal{}!"
 
     if tottenham > liverpool:
         print(output_tmpl.format("Tottenham", goal_diff, "s" if goal_diff > 1 else ""))

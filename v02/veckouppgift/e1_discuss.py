@@ -16,6 +16,7 @@ passa på att kombinera med code review.
 6. Diskutera möjliga förbättringar på koden
    > * Börja med att säkerställa vad man skall ge för input
      * Lägg till "kr" i output (även i input)
+     * Vad gör 'is_member'?
      * Endast output om rabatt om det blir rabatt.
         - ytterligare if stats om 'discount > 0'
 """

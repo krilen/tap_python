@@ -30,9 +30,9 @@ Förslag på värden att testa med: 1 2 3, 1 3 2, 3 2 1, -1 -3 -1, 9 9 9, 32 32 
 while True:
     try:
         print("Give me three numbers!")
-        num_1 = int(input("Number 1? >> "))
-        num_2 = int(input("Number 2? >> "))
-        num_3 = int(input("Number 3? >> "))
+        num_1: int = int(input("Number 1? >> "))
+        num_2: int = int(input("Number 2? >> "))
+        num_3: int = int(input("Number 3? >> "))
         
     except ValueError:
         print("That was not valid numbers!\n")
@@ -42,7 +42,7 @@ while True:
     
 print(f"\nSum of: {num_1} + {num_2} + {num_3} is {num_1 +num_2 +num_3}.\n")
 
-biggest_num = None
+biggest_num: int = None
 
 if num_1 > num_2 and num_1 > num_3:
     print(f"{num_1} (Number 1) is the biggest number")
@@ -58,7 +58,7 @@ else:
 
 print()
 
-different = True
+different: bool = True
 
 if num_1 == num_2 == num_3:
     print("All numbers are thesame.\n")
