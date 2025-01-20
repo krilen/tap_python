@@ -18,18 +18,18 @@ Skriv in koden i din IDE, exakt som den står, och kör den.
 ![](img1.jpg)
 
 2 Vad skrivs ut?  
-![][img2.jpg]
+![](img2.jpg)
 
 3 Vad blir summan? Skriv ner din bästa gissning _innan_ du kör koden.  
-![][img3.jpg]
+![](img3.jpg)
 
 4 Vad skrivs ut?  
 För att förstå koden kan du sätta ut brytpunkter och köra med debugging. Det kan också underlätta att skriva samtidigt med papper och penna.  
-![][img4.jpg]
+![](img4.jpg)
 
 5 Vad skrivs ut?  
 Kan du göra om koden så att den skriver ut "time" i stället?  
-![][img5.jpg]
+![](img5.jpg)
 
 6 Vad skrivs ut?  
 Kan du flytta linjen ett steg åt höger?  
