@@ -120,6 +120,7 @@ for y in range(1, 7):
 
 a-f  
 ![](img6.jpg)
+
 g-j  
 ![](img7.jpg)
 
