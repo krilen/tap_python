@@ -119,9 +119,9 @@ for y in range(1, 7):
  print(s)
 
 a-f  
-![][image6]  
+![](img6.jpg)
 g-j  
-![][image7]
+![](img7.jpg)
 
 ---
 
