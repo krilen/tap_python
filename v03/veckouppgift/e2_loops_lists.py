@@ -25,7 +25,7 @@ print("Summan av talen 1 till 10 är: " + str(answer))
 """
 
 # 1A
-answer = 0
+answer: int = 0
 
 for i in range(11):
     answer += i
@@ -38,8 +38,8 @@ print("Summan av talen 1 till 10 är: " + str(answer))
 print(f"Summan för alla tal mellan 1 och 100 är: {sum(range(1,101))}")
 
 # 1C
-i = 1
-summa = 0
+i: int = 1
+summa: int = 0
 
 while i <= 100:
     summa += i
@@ -48,11 +48,46 @@ while i <= 100:
 print("Summan med en while loop:", summa)
 
 # 2
-elements = [1, -2, 3, -2, 4, -3]
+elements: list[int] = [1, -2, 3, -2, 4, -3]
 print("Summan av element blir:", sum(elements))
 
 # 3
-# Skippar denna
+# 3A Skapa en lista med namnen på fyra filmer. Namnen ska vara strängar. Skriv ut hela listan med funktionen print.
+print()
+movies: list[str] = ["Matrix", "Jumanji", "Die Hard", "JFK"]
+print(*movies, sep = "\n")
+
+# 3B Lägg till "Fellowship of the ring" sist i listan.
+movies.append("Fellowship of the ring")
+
+# 3C Lägg till "The two towers" på första platsen i listan. (index noll)
+movies.insert(0, "The two towers")
+
+# 3D Ta reda på vilken position (index) "Fellowship of the ring" har nu.
+print()
+print(*movies, sep = "\n")
+print(f"Position för \"Fellowship of the ring\": {movies.index("Fellowship of the ring")}")
+
+# 3E Ta bort en annan av filmerna. Har Fellowship-filmen ändrat index?
+print()
+movies.remove("Matrix")
+print(*movies, sep = "\n")
+print(f"Position för \"Fellowship of the ring\": {movies.index("Fellowship of the ring")}")
+# > Ja
+
+# 3F Ta reda på hur lång listan är (len)
+print()
+print(f"Antal filmer: {len(movies)}")
+
+# 3G Vänd listan baklänges.
+print()
+print(*movies[::-1], sep = "\n")
+# Fuling kanske borde ha använt 'reverse' eller en loop som räknar ner men ville bara få det gjort
+
+# 3H Sortera listan stigande i bokstavsordning.
+print()
+movies.sort()
+print(*movies, sep = "\n")
 
 
 
