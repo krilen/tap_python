@@ -15,7 +15,7 @@ _3 Du får ta hjälp av AI för att förklara koncept och lösa fel. Du får int
 Skriv in koden i din IDE, exakt som den står, och kör den.
 
 1 Vad skrivs ut?  
-![][img1.jpg]
+![](img1.jpg)
 
 2 Vad skrivs ut?  
 ![][img2.jpg]
