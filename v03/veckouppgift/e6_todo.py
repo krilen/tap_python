@@ -28,16 +28,24 @@ bockat av tidigare, eller välja att lägga tillbaka grejen i todo-listan.
 """
 
 todos: list[str] = []
+todos_done: list[str] = []
+
+def list_todo(list_todos) -> None:
+    for i, todo in enumerate(list_todos, start = 1):
+        print(f" + {i}. - {todo}")
+
 
 while True:
     
-    print(" ** Todo ** ")
-    print(" * 1: See the content of the todo")
+    print(" *** Todo *** ")
+    print(" * 1: See the todos")
     print(" * 2: Add a todo")
-    
+    print(" * 3: Mark a todo done")
+    print(" * 4: See the todos that are done")
+    print(" * 5: Move a done todo back")
     
     print("---")
-    print(" * c: clear the todo ")
+    print(" * r: Remove all todos")
     print(" * q: To quit")
     
     selection: str = input("Choose what to do >> ")
@@ -45,24 +53,70 @@ while True:
     print()
     
     match selection:
+        # See todos
         case "1":
             if len(todos) > 0:
-                for i, todo in enumerate(todos, start = 1):
-                    print(f" + {i}. - {todo}")
-        
+                print("Current todos:")
+                list_todo(todos)
+            
             else:
                 print("Your todo is empty")
         
+        # Add todo
         case "2":
             todo: str = input("What do you want to add to the todo: >> ")
             print(f"Added: {todo!r} to you todo")
             todos.append(todo)
         
+        # Mark a todo done
+        case "3":
+            if len(todos) > 0:
+                print("Current todos:")
+                list_todo(todos)
+                
+                try:
+                    mark: int = int(input("What todo are done (nr)? >> "))
+                                    
+                except ValueError:
+                    print("That is not a valid todo (nr)!")
+                    
+                else:
+                    done: str = todos.pop(mark -1)
+                    print(f"Marked: {done!r} as done")
+                    
+                    todos_done.append(done)
+                    
+        case "4":
+            if len(todos_done) > 0:
+                print("These todos are marked as done:")
+                list_todo(todos_done)
+                
+            else:
+                print("Your done todos is empty")
+
+        case "5":
+            if len(todos_done) > 0:
+                print("These todos are marked as done:")
+                list_todo(todos_done)
+
+                try:
+                    mark: int = int(input("What done todo to move (nr)? >> "))
+                                    
+                except ValueError:
+                    print("That is not a valid done todo (nr)!")
+                    
+                else:
+                    move: str = todos_done.pop(mark -1)
+                    print(f"Marked: {done!r} as done")
+                    
+                    todos.append(move)
+        
         case "q":
             break
         
-        case "c":
+        case "r":
             todos.clear()
+            todos_done.clear()
         
         case _:
             print("That is not a valid selection!")
