@@ -31,3 +31,26 @@ Version 2:
 Lägg till egna testfall för dricksen.
 
 """
+
+numbers: list[int] = []
+
+print("Welcome to 'Kvittokompis', quit by enter: 'quit'")
+
+while True:
+    
+    user_input: str = input("Please enter a number: >> ")
+    
+    if user_input.casefold() == "quit":
+        break
+    
+    try:
+        number: int = int(user_input)
+        
+    except ValueError:
+        print("That is not av valid input, please try again!")
+        
+    else:
+        numbers.append(number)
+        
+print(f"That will be {sum(numbers)} kr in total. Welcome back.")
+        
