@@ -85,7 +85,7 @@ while True:
                     print(f"Marked: {done!r} as done")
                     
                     todos_done.append(done)
-                    
+        # See todos that are marked as done            
         case "4":
             if len(todos_done) > 0:
                 print("These todos are marked as done:")
@@ -94,6 +94,7 @@ while True:
             else:
                 print("Your done todos is empty")
 
+        # Move a done todo back
         case "5":
             if len(todos_done) > 0:
                 print("These todos are marked as done:")
@@ -111,9 +112,11 @@ while True:
                     
                     todos.append(move)
         
+        # quit
         case "q":
             break
         
+        # remove or clear all todos
         case "r":
             todos.clear()
             todos_done.clear()
