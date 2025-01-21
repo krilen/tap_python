@@ -30,12 +30,22 @@ Version 2:
 
 Lägg till egna testfall för dricksen.
 
+testfall >
+ * 10; 1 person; 0% tip -> 10                               <= Täcker en person utan dricks, eftersom 0 är speciell
+ * 10; 1 person; default tip -> 11                          <= Täcker en person med default dricks, 10%
+ * 10; 1 person; 20% tip -> 12                              <= Täcker en person med extra dricks 20%
+ * 10+20; 2 person, default tip -> 33 / 16.5                <= Räknar ihop och delar för 2 personer med default dricks, 10%
+ * 10+20; 2 person, 20% tip -> 36 / 18                      <= Räknar ihop (3 st) och delar med 2 personer med extra dricks 20%
+ * 10+20; 3 personer, 0% tip -> 30 / 10                     <= Räknar ihop och delar med 3 personer utan dricks
+ * 10+20+30+40; 2 personer, default tip -> 110 / 55         <= Räknar ihop
 """
 
-numbers: list[int] = []
+numbers: list[float] = []
+tip: int = 10
 
 print("Welcome to 'Kvittokompis', quit by enter: 'quit'")
 
+# Getting the numbers
 while True:
     
     user_input: str = input("Please enter a number: >> ")
@@ -44,13 +54,53 @@ while True:
         break
     
     try:
-        number: int = int(user_input)
+        number: float = float(user_input)
         
     except ValueError:
         print("That is not av valid input, please try again!")
         
     else:
         numbers.append(number)
+
+
+# Getting the number of people
+while True:
+    
+    try:
+        nr_of_people: int = int(input("How many people are there >> "))
         
-print(f"That will be {sum(numbers)} kr in total. Welcome back.")
+    except ValueError:
+        print("That is not a valid number of people")
+        
+    else:
+        break
+
+total_amount: float = sum(numbers)
+
+
+# Getting the tip
+print(f"How much tip do you want to add, currently at {tip}% it add {round(total_amount * tip/100, 1)} kr.")
+
+tip_str = input("How much tip in % do you wish to add? >> ")
+    
+if tip_str != "":
+    try:
+        tip: float = float(tip_str)
+    
+    except ValueError:
+        pass
+
+tip_amount: float = total_amount * tip/100
+total_amount += tip_amount
+
+
+# Output
+print()
+
+print(f"That will be {total_amount:.1f} kr in total, including {tip_amount:.1f} kr in tip")
+
+if nr_of_people > 1:
+    print(f"This will be for each {(total_amount / nr_of_people):.1f} kr.")
+    
+print("Welcome back.")
         
