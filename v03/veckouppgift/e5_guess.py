@@ -55,6 +55,9 @@ while True:
         else:
             print("No, to low!")
             
+        if abs(guess - secret) <= 5:
+            print("Warmer, getting close!")
+            
     print()
         
 print()
