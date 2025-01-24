@@ -32,7 +32,7 @@ todos_done: list[str] = []
 
 def list_todo(list_todos) -> None:
     for i, todo in enumerate(list_todos, start = 1):
-        print(f" + {i}. - {todo}")
+        print(f" + {i}: {todo}")
 
 
 while True:
