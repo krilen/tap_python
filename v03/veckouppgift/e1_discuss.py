@@ -34,7 +34,7 @@ for y in range(1, 7):
  
 """
 
-print("Nr 1")
+print("Nr 1 --------------------------")
 
 limit = 15
 index = 5
@@ -43,7 +43,7 @@ while index <= limit:
     print(index)
     index = index + 2
     
-print("\n\nNr 2")
+print("\n\nNr 2\n--------------------------")
 
 for i in range(10):
     if i == 5:
@@ -53,15 +53,15 @@ for i in range(10):
         
     i = i + 1
 
-print("\n\nNr 3")
+print("\n\nNr 3\n--------------------------")
 
 counter = 0
 for i in range(6):
-        counter += 1
+    counter += i
 
 print(counter)
 
-print("\n\nNr 4")
+print("\n\nNr 4\n--------------------------")
 
 x = 0
 y = 1
@@ -73,12 +73,12 @@ while y < 10:
         x += y * y
     y += 1
     
-print("\n\nNr 5")
+print("\n\nNr 5\n--------------------------")
 
 message = "its_time_to_get_coding"
 print(message[3:8])
 
-print("\n\nNr 6")
+print("\n\nNr 6\n--------------------------")
 
 
 for y in range(1, 7):
