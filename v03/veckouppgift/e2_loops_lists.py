@@ -33,9 +33,9 @@ for i in range(11):
 print("Summan av talen 1 till 10 är: " + str(answer))
 
 # 1B
-# Som ovan men m,ed 'range(1, 101)'
+# Som ovan men med 'range(1, 101)'
 # Tar en liten annan väg, lite mer avancerad
-print(f"Summan för alla tal mellan 1 och 100 är: {sum(range(1,101))}")
+print(f"Summan för alla tal mellan 1 och 100 är: {sum(range(101))}")
 
 # 1C
 i: int = 1
