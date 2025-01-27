@@ -6,7 +6,7 @@ Fick du samma resultat som du trodde? Om inte, varför?
 Tillsammans med Rasmus
 """
 
-print("1a -------------------------")
+print("\n1a\n-------------------------")
 
 # 1a
 def foo(t):
@@ -16,7 +16,7 @@ foo("hej")
 
 # >Skriver ut "test", ignorerar parametern
 
-print("1b -------------------------")
+print("\n1b\n-------------------------")
 
 # 1b
 def fun1(x, y):
@@ -26,7 +26,7 @@ print(3, 5)
 
 # >Skriver "3 5" inget "function call" 
 
-print("1c -------------------------")
+print("\n1c\n-------------------------")
 
 # 1c
 def fun1(x, y):
@@ -36,7 +36,7 @@ print(fun1(3, 5))
 
 # >Skriver ut "15", allt enligt spec.
 
-print("1d -------------------------")
+print("\n1d\n-------------------------")
 
 # 1d
 def fun2(i):
@@ -49,7 +49,7 @@ print(a)
 
 # >Skriver 125
 
-print("1e -------------------------")
+print("\n1e\n-------------------------")
 
 # 1e
 a = 5
@@ -61,7 +61,7 @@ print(a)
 
 # >Skriver "7" ingen function call
 
-print("1f -------------------------")
+print("\n1f\n-------------------------")
 
 # 1f
 def foo(i):
@@ -73,9 +73,9 @@ def goo(x, y):
 a = goo(foo, 3);
 print(a)
 
-# >Skriver ut "18"
+# >Skriver ut "18", skickar in en funktion som ett parameter
 
-print("1g -------------------------")
+print("\n1g\n-------------------------")
 
 # 1g Funktionen "isinstance" kan kontrollera en variabels datatyp. 
 # Vad gör funktionen is_number? Går det att förbättra koden?
@@ -96,7 +96,7 @@ print(is_number("Hello")) # False
 #   Dålig return värde, det säger inget vad ör typ av värde förutom att
 #   både 'float' och 'int' får i return som 'True' och allt annat 'False'
 
-print("1h -------------------------")
+print("\n1h\n-------------------------")
 
 # 1h
 def average_words(strings):
@@ -112,7 +112,7 @@ print(*selected_words )
 # > Egentligen inget eftersom inte någon 'print' finns men om det fanns så skulle
 #   alla ord som har en längt mellan 5 och 7 retuneras i en lista
 
-print("1g -------------------------")
+print("\n1g\n-------------------------")
 
 # 1g
 """
@@ -125,7 +125,7 @@ En uppgift i tre delar:
     > Se nedan
     
  3. Rätta felen, så funktionen gör det den ska.
-    > * If sats för att unvika tomma listion som input
+    > * If sats för att undvika tomma listor som input
       * Ändra vad som anses vara första jämföresle vårdet
       * Ta bort return
     
@@ -146,10 +146,10 @@ def find_min(numbers):
         print(f"The smallest item is: {counter}")
 
 
-find_min([10, 3, -4, -11]) # > -11
-find_min([])  # > 0
-find_min([100]) # > 0
+find_min([10, 3, -4, -11]) # > -11: korrekt
+find_min([])  # > 0: detta är fel eftersom litan med nummer är tom
+find_min([100]) # > 0: detta är fel eftersom 0 inte ingick i listan
 
-find_min([-2, 2, 3, -1, 1]) # Extra för kontroll
+find_min([-2, 2, 3, -1, 1]) # Extra för test
 
 
