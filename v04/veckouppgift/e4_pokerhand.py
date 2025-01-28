@@ -156,9 +156,13 @@ def main():
     # Create a random deck of cards
     deck_cards: list[Tuple[int, int]] = create_deck()
 
+    # Get the top 5 cards for your hand
     hand_cards: list[Tuple[int, int]] = deck_cards[:5]
     
+    # What kind of pokerhadn do you have?
     poker_hand: int = check_poker_hand(hand_cards)
+    
+    # Make the hand of cards into strings
     hand_cards_pretty: list[str] = pretty_hand(hand_cards)
     
     # Print the card in hand
