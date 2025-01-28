@@ -38,4 +38,20 @@ while True:
         break
     else:
         increase_by += 1
+
+
+
+# Version2
+import random
+
+total2 = 0
+increase_by2 = random.randint(1, 13)
+
+while True:
+    
+    check, total2 = check_total(total2, increase_by2)
         
+    if check:
+        break
+    else:
+        increase_by2 += 1
