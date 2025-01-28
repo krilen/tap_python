@@ -114,7 +114,6 @@ def pretty_hand(cards: list[Tuple[int, int]]) -> list[str]:
 
 # Function to see if the rank / values of the cards in you are are sequential
 def check_cards_seq(cards: list[Tuple[int, int]]) -> bool:
-    
     values: list[int] = [v for _, v in cards ]
     
     # Not all unique values in the list
