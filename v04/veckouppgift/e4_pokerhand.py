@@ -150,30 +150,146 @@ def check_cards_same_value(cards: list[Tuple[int, int]]) -> str:
     return pair_kind
 
 
-
-# Main function that controls it allk
-def main():
+# Play one hand
+def play_hand() -> Tuple[list[int], int]:
     # Create a random deck of cards
     deck_cards: list[Tuple[int, int]] = create_deck()
-
-    # Get the top 5 cards for your hand
-    hand_cards: list[Tuple[int, int]] = deck_cards[:5]
     
-    # What kind of pokerhadn do you have?
+    # Get the top 5 cards for your hand
+    hand_cards: list[Tuple[int, int]] = deck_cards[:nr_of_cards_in_hand]
+    
+    # What kind of poker hand do you have?
     poker_hand: int = check_poker_hand(hand_cards)
     
+    return hand_cards, poker_hand
+
+
+# Find a specific hand
+def find_hand(hand_to_find: int) ->  None:
+    
+    # Needed since we started with 1 when showing using 'enumerate'
+    hand_to_find -= 1
+    nr_of_hands_played = 0
+    
+    print(f" Attempting to find: {possible_poker_hands[hand_to_find]}")
+    
+    while True:
+        
+        nr_of_hands_played += 1
+        
+        hand_cards, poker_hand = play_hand()
+        
+        if poker_hand == hand_to_find:
+            break
+        
+        if nr_of_hands_played % nr_show_when_find == 0:
+            print(f" {nr_of_hands_played},", end = "")
+
+            if nr_of_hands_played % (nr_show_when_find * 10) == 0:
+                print()
+            
+    print(f"\n It took {nr_of_hands_played} attempts to find the hand")
+    menu_play_hand(hand_cards, poker_hand)
+    
+    print()
+    
+    
+    
+    
+
+# Menu for play one hand
+def menu_play_hand(hand_cards: list[Tuple[int, int]], poker_hand: int) -> None:
+        
     # Make the hand of cards into strings
     hand_cards_pretty: list[str] = pretty_hand(hand_cards)
     
     # Print the card in hand
     for pretty_card in hand_cards_pretty:
-        print(f" * {pretty_card} ")
+        print(f"  * {pretty_card} ")
     
     # Print what kind of poker hand you have
-    print(f" >>> {possible_poker_hands[poker_hand]}")
+    print(f"  > {possible_poker_hands[poker_hand]}")
+    
+
+# Menu to find a specifc hand
+def menu_find_hand() -> None:
+    print(" What hand do you wish to find?")
+
+    for i, p_hand in enumerate(possible_poker_hands, start = 1):
+        print(f"  {i}. {p_hand}")
+        
+    print("\n Press 'e' to exit this menu") 
+        
+    select = input("\n Select the number of the hand you wish to find >> ").casefold()
+    
+    if select != "e":
+        try:
+            find_selection: int = int(select)
+            
+        except ValueError:
+            print("\n That was not a vaild selection!\n")
+            
+        else:
+            if find_selection > len(possible_poker_hands) or find_selection == 0:
+                print("\n That was not a vaild selection!\n")
+                
+            else:
+                find_hand(find_selection)
+            
+        menu_find_hand()    
+    
+    
+    
+# Function display the main menu
+def menu_print() -> None:
+    
+    print("\n  * Press 'p' to play a single hand.")
+    print("  * Press 'f' to find how many attempts it takes")
+    
+    print("  * Press 'q' to quit.\n")
+
+
+# Function to handle the selection of the menu
+def menu_select(select: str) -> None:
+    
+    match select:
+        
+        # Play a hand
+        case "p":
+            hand_cards, poker_hand = play_hand()
+            menu_play_hand(hand_cards, poker_hand)
+            
+        case "f":
+            menu_find_hand()
+            
+            
+        case _:
+            print(" Not a valid selection!")
+
+
+# Main function that controls it all
+def main():
+    
+    print("\n ***** WELCOME TO POKER *****")
+    
+    while True:
+    
+        menu_print()
+        
+        select = input(" What would you like to do? >> ").casefold()
+        
+        if select == "q":
+            break
+        else:
+            menu_select(select)
+        
+    print(" Thanks for playing")
+        
+
 
 
 if __name__ == "__main__":
+    nr_of_cards_in_hand: int = 5
     card_colors: list[int] = [0, 1, 2, 3]
     card_colors_names: list[str] = ["hearts", "spade", "diamonds", "clubs"]
     card_values: list[int] = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
@@ -189,6 +305,8 @@ if __name__ == "__main__":
                                         "Full house", 
                                         "Four of a kind", 
                                         "Stright flush"]
+
+    nr_show_when_find: int = 25
 
     # Lets run
     main()
