@@ -1,4 +1,7 @@
 """
+>>> Hoppar denna öning, la all min kraft på pokerhand.
+
+
 Turtle graphics
 Python har ett paket med inbyggda, enkla funktioner för grafik: turtle. Tänk dig att du har en robotarm som håller en penna mot ett papper. Man kan ge olika instruktioner till roboten, för att styra den. Några exempel:
 forward - gå rakt framåt i standardriktningen (peka ursprungligen åt höger)
@@ -27,6 +30,12 @@ def square(length: int = 50) -> None:
         
     t.penup()
     
+    
+def move(rotate: int, length: int):
+    t.penup()
+    t.left(rotate)
+    t.forward(length)
+    
 # Upprepa 3 gånger
 for x in range(3):
     t.forward(100)
@@ -40,7 +49,9 @@ t.dot(10, "red")
 t.color("blue")
 t.forward(50)
 
-square()
+for _ in range(5):
+    square()
+    move(180, 50)
 
 # Låt fönstret stanna kvar tills användaren stänger det
 t.mainloop()
