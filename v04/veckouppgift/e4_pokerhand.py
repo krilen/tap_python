@@ -188,7 +188,7 @@ def find_hand(hand_to_find: int) ->  None:
             if nr_of_hands_played % (nr_show_when_find * 10) == 0:
                 print()
             
-    print(f"\n It took {nr_of_hands_played} attempts to find the hand")
+    print(f"\n\n It took {nr_of_hands_played} attempts to find the hand")
     menu_play_hand(hand_cards, poker_hand)
     
     print()
@@ -294,7 +294,7 @@ if __name__ == "__main__":
     card_colors_names: list[str] = ["hearts", "spade", "diamonds", "clubs"]
     card_values: list[int] = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     card_values_names: list[str] = ["", "", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-                                    "Knight", "Queen", "King", "Ace"]
+                                    "Jack", "Queen", "King", "Ace"]
     
     possible_poker_hands: list[str] = ["High card", 
                                         "Pair", 
