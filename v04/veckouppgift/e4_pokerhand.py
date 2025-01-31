@@ -44,56 +44,59 @@ import random
 def create_deck() -> list[Tuple[int, int]]:
     deck: list[Tuple[int, int]] = []
     
-    for color in card_colors:
-        for value in card_values:
+    for suit in card_suits:
+        for rank in card_ranks:
             
-            card: Tuple[int, int] = color, value
-            deck.append( card )
+            card: Tuple[int, int] = suit, rank
+            deck.append(card)
             
     random.shuffle(deck)
         
     return deck
-    
+
 
 # Function to check the highest "value" of your hand
 def check_poker_hand(cards: list[Tuple[int, int]]) -> int:
     
-    # Check to see it the cards are in sequential rank
+    # Check to see if the cards are in sequential rank
     card_seq: bool = check_cards_seq(cards)
+    
+    # Check to see if the cards are of the same suit (color)
+    card_same_suit: bool = check_cards_same_suit(cards)
   
-    # Stright flush (same color and sequential rank)
-    if cards[0][0] == cards[1][0] == cards[2][0] == cards[3][0] == cards[4][0] and card_seq:
+    # Stright flush (same suit and sequential rank)
+    if card_same_suit and card_seq:
         return 8
         
     # Stright (sequential rank)
     if card_seq:
         return 4
     
-    # Flush (same color)
-    if cards[0][0] == cards[1][0] == cards[2][0] == cards[3][0] == cards[4][0]:
+    # Flush of the same suit (color)
+    if card_same_suit:
         return 5
     
-    # Check to see if the cards are of the same values
-    card_same_value: str = check_cards_same_value(cards)
+    # Check to see if the cards are of the same rank (value)
+    card_same_rank: str = check_cards_same_rank(cards)
     
     # Four of a kind
-    if card_same_value == "4,":
+    if card_same_rank == "4,":
         return 7
     
     # Full house (Three of a kind and a Pair)
-    elif card_same_value == "2,3," or card_same_value == "3,2,":
+    elif card_same_rank == "2,3," or card_same_rank == "3,2,":
         return 6
     
     # Three of a kind
-    elif card_same_value == "3,":
+    elif card_same_rank == "3,":
         return 3
     
     # Two pair
-    elif card_same_value == "2,2,":
+    elif card_same_rank == "2,2,":
         return 2
     
     # Pair
-    elif card_same_value == "2,":
+    elif card_same_rank == "2,":
         return 1
     
     # Nothing, only a high card
@@ -106,7 +109,7 @@ def pretty_hand(cards: list[Tuple[int, int]]) -> list[str]:
     hand: list[str] = []
     
     for card in cards:
-        pretty_card: str = f"{card_values_names[card[1]]} of {card_colors_names[card[0]]}"
+        pretty_card: str = f"{card_ranks_names[card[1]]} of {card_suits_names[card[0]]}"
         hand.append(pretty_card)
         
     return hand
@@ -114,38 +117,50 @@ def pretty_hand(cards: list[Tuple[int, int]]) -> list[str]:
 
 # Function to see if the rank / values of the cards in you are are sequential
 def check_cards_seq(cards: list[Tuple[int, int]]) -> bool:
-    values: list[int] = [v for _, v in cards ]
+    ranks: list[int] = [r for _, r in cards]
     
     # Not all unique values in the list
-    if len(set(values)) != 5:
+    if len(set(ranks)) != nr_of_cards_in_hand:
         return False
     
-    values.sort()
+    ranks.sort()
     
     # Compair the sorted list of cards with a range list that starts with the same value
     # as the first card in the sorted list. Equal => sequential rank (8values)
-    if values == list(range(values[0], values[0]+5)):
+    if ranks == list(range(ranks[0], ranks[0] +nr_of_cards_in_hand)):
         return True
     
     return False
 
 
-def check_cards_same_value(cards: list[Tuple[int, int]]) -> str:
-    values: list[int] = [v for _, v in cards ]
-    unique_values: list[int] = list(set(values))
+# Function to check if the cards are of the same suit (color)
+def check_cards_same_suit(cards: list[Tuple[int, int]]) -> bool:
+    suits: list[int] = [s for s, _ in cards]
+    
+    if len(set(suits)) == 1:
+        return True
+    
+    return False
+
+
+# Function to fins if cards in hand are of the same rank 8value) and how many
+def check_cards_same_rank(cards: list[Tuple[int, int]]) -> str:
+    ranks: list[int] = [r for _, r in cards]
+    unique_ranks: list[int] = list(set(ranks))
     
     # All card values are unique => no pair, ...
-    if len(unique_values) == 5:
+    if len(unique_ranks) == nr_of_cards_in_hand:
         return "1,"
     
     pair_kind: str = ""
     
     # Loop through the unique cards and count the cards that are equal to the unique cards
-    for unique_value in unique_values:
-        nr_of_same_value: int = values.count(unique_value)
+    # Find cards that are of the same rank
+    for unique_rank in unique_ranks:
+        nr_of_same_rank: int = ranks.count(unique_rank)
         
-        if nr_of_same_value > 1:
-            pair_kind += (str(nr_of_same_value) + ",")
+        if nr_of_same_rank > 1:
+            pair_kind += (str(nr_of_same_rank) + ",")
     
     return pair_kind
 
@@ -167,8 +182,9 @@ def play_hand() -> Tuple[list[int], int]:
 # Find a specific hand
 def find_hand(hand_to_find: int) ->  None:
     
-    # Needed since we started with 1 when showing using 'enumerate'
+    # Needed since we started with 1 when showing using 'enumerate' in the menu
     hand_to_find -= 1
+    
     nr_of_hands_played = 0
     
     print(f" Attempting to find: {possible_poker_hands[hand_to_find]}")
@@ -182,7 +198,7 @@ def find_hand(hand_to_find: int) ->  None:
         if poker_hand == hand_to_find:
             break
         
-        if nr_of_hands_played % nr_show_when_find == 0:
+        if nr_of_hands_played % nr_show_when_find == 0 or nr_of_hands_played == 1:
             print(f" {nr_of_hands_played},", end = "")
 
             if nr_of_hands_played % (nr_show_when_find * 10) == 0:
@@ -194,9 +210,6 @@ def find_hand(hand_to_find: int) ->  None:
     print()
     
     
-    
-    
-
 # Menu for play one hand
 def menu_play_hand(hand_cards: list[Tuple[int, int]], poker_hand: int) -> None:
         
@@ -262,7 +275,6 @@ def menu_select(select: str) -> None:
         case "f":
             menu_find_hand()
             
-            
         case _:
             print(" Not a valid selection!")
 
@@ -290,10 +302,10 @@ def main():
 
 if __name__ == "__main__":
     nr_of_cards_in_hand: int = 5
-    card_colors: list[int] = [0, 1, 2, 3]
-    card_colors_names: list[str] = ["hearts", "spade", "diamonds", "clubs"]
-    card_values: list[int] = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-    card_values_names: list[str] = ["", "", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+    card_suits: list[int] = [0, 1, 2, 3]
+    card_suits_names: list[str] = ["hearts", "spade", "diamonds", "clubs"]
+    card_ranks: list[int] = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    card_ranks_names: list[str] = ["", "", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                                     "Jack", "Queen", "King", "Ace"]
     
     possible_poker_hands: list[str] = ["High card", 
@@ -302,7 +314,7 @@ if __name__ == "__main__":
                                         "Three of a kind", 
                                         "Stright", 
                                         "Flush", 
-                                        "Full house", 
+                                        "Full house",
                                         "Four of a kind", 
                                         "Stright flush"]
 
