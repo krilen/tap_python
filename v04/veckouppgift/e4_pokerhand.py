@@ -115,22 +115,48 @@ def pretty_hand(cards: list[Tuple[int, int]]) -> list[str]:
     return hand
     
 
-# Function to see if the rank / values of the cards in you are are sequential
+# Function to see if the rank / values of the cards in you hand are sequential (stright)
 def check_cards_seq(cards: list[Tuple[int, int]]) -> bool:
+    cards_in_seq = False
+    
     ranks: list[int] = [r for _, r in cards]
     
     # Not all unique values in the list
-    if len(set(ranks)) != nr_of_cards_in_hand:
-        return False
+    if len(set(ranks)) != len(cards):
+        return cards_in_seq
     
     ranks.sort()
     
     # Compair the sorted list of cards with a range list that starts with the same value
     # as the first card in the sorted list. Equal => sequential rank (8values)
     if ranks == list(range(ranks[0], ranks[0] +nr_of_cards_in_hand)):
-        return True
-    
-    return False
+        cards_in_seq = True
+        
+    # Making sure that ACE card that normally is counted as 14 also is check as a 1 when 
+    # it comes to a stright
+    """
+    # Call the function again after recreating the card (suit and rank) with the value
+    # of 1 for the ACE instead of 14 and running it through the function again
+    if not cards_in_seq and ranks[-1] == 14:
+        _tmp = []
+        for suit, rank in cards:
+            if rank == 14:
+                rank = 1
+                
+            _tmp.append((suit, rank))
+            
+        if check_cards_seq(_tmp):
+            cards_in_seq = True
+    """
+    # Just recreate the list of ranks locally and checking it again
+    if not cards_in_seq and ranks[-1] == 14:
+        ranks[-1] = 1 # reassign the value 14 (normal ACE value) as 1 
+        ranks.sort()  # A re-sort is needed
+        
+        if ranks == list(range(ranks[0], ranks[0] +nr_of_cards_in_hand)):
+            cards_in_seq = True
+
+    return cards_in_seq
 
 
 # Function to check if the cards are of the same suit (color)
@@ -143,13 +169,13 @@ def check_cards_same_suit(cards: list[Tuple[int, int]]) -> bool:
     return False
 
 
-# Function to fins if cards in hand are of the same rank 8value) and how many
+# Function to fins if cards in hand are of the same rank value) and how many
 def check_cards_same_rank(cards: list[Tuple[int, int]]) -> str:
     ranks: list[int] = [r for _, r in cards]
     unique_ranks: list[int] = list(set(ranks))
     
     # All card values are unique => no pair, ...
-    if len(unique_ranks) == nr_of_cards_in_hand:
+    if len(unique_ranks) == len(cards):
         return "1,"
     
     pair_kind: str = ""
@@ -171,12 +197,14 @@ def play_hand() -> Tuple[list[int], int]:
     deck_cards: list[Tuple[int, int]] = create_deck()
     
     # Get the top 5 cards for your hand
-    hand_cards: list[Tuple[int, int]] = deck_cards[:nr_of_cards_in_hand]
+    player_card_hand: list[Tuple[int, int]] = deck_cards[:nr_of_cards_in_hand]
+    
+    #player_card_hand = [(0,3), (1,4), (0,14), (2,2), (3,5)]
     
     # What kind of poker hand do you have?
-    poker_hand: int = check_poker_hand(hand_cards)
+    poker_hand: int = check_poker_hand(player_card_hand)
     
-    return hand_cards, poker_hand
+    return player_card_hand, poker_hand
 
 
 # Find a specific hand
