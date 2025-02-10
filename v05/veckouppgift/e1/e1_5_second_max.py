@@ -11,19 +11,15 @@ def find_2nd_max(list_numbers: list[int]=[]) -> None | int:
     
     if not list_numbers:
         return None
-
-    #list_check_numbers = []
     
-    #for number in list_numbers:
-    #    if isinstance(number, int):
-    #        list_check_numbers.append(number)
+    # Eftersom en ny lista skapas behövs ingen '<list>.copy()'
+    # göras för att säkerställa att orginal listan inte påverkas
+    check_list_numbers = [ n for n in list_numbers if isinstance(n, int) ]
 
-    list_check_numbers = [ n for n in list_numbers if isinstance(n, int) ]
-
-    if len(list_check_numbers) > 1:
-        list_check_numbers.sort()
+    if len(check_list_numbers) > 1:
+        check_list_numbers.sort()
         
-        return list_check_numbers[-2]
+        return check_list_numbers[-2]
     
     else:
         return None

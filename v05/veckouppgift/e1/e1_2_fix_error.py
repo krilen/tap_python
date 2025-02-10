@@ -4,7 +4,7 @@ Returnerar summan av alla tal i listan
 """
 
 def sum_list(list):
-    if not list:
-        return None
+    #if not list:
+    #    return None
     
     return sum(list)

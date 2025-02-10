@@ -8,7 +8,8 @@
 import pytest
 from e1.e1_5_second_max import *
 
-
+# Bör dela upp assert i olika delar
+"""
 def test_find_2nd_max__fetch_2nd_max_value():
     assert find_2nd_max() == None
     assert find_2nd_max("") == None
@@ -20,3 +21,20 @@ def test_find_2nd_max__fetch_2nd_max_value():
     assert find_2nd_max([1, 2, 3]) == 2
     assert find_2nd_max([4, "a"]) == None # se ovan misstolkning
     assert find_2nd_max(["a", 2, 4, "5", 7]) == 4
+"""
+
+def test_find_2nd_max__return_none_no_correct_list():
+    assert find_2nd_max() == None
+    assert find_2nd_max("") == None
+    assert find_2nd_max([]) == None
+    assert find_2nd_max("a") == None
+    
+def test_find_2nd_max__return_2nd_max():    
+    assert find_2nd_max(["a", 2, 4, "5", 7]) == 4
+    assert find_2nd_max([1, 1]) == 1
+    assert find_2nd_max([1, 2]) == 1
+    assert find_2nd_max([1, 2, 3]) == 2
+    
+def test_find_2nd_max__return_none_when_single_value():
+    assert find_2nd_max([1]) == None
+    assert find_2nd_max([4, "a"]) == None
