@@ -26,4 +26,4 @@ def find_2nd_max(list_numbers: list[int]=[]) -> None | int:
         return list_check_numbers[-2]
     
     else:
-        return list_check_numbers[0]
+        return None
