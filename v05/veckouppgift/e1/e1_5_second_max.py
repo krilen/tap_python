@@ -12,7 +12,7 @@ def find_2nd_max(list_numbers: list[int]=[]) -> None | int:
     if not list_numbers:
         return None
 
-    list_check_numbers = []
+    #list_check_numbers = []
     
     #for number in list_numbers:
     #    if isinstance(number, int):
