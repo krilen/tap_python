@@ -14,9 +14,11 @@ def find_2nd_max(list_numbers: list[int]=[]) -> None | int:
 
     list_check_numbers = []
     
-    for number in list_numbers:
-        if isinstance(number, int):
-            list_check_numbers.append(number)
+    #for number in list_numbers:
+    #    if isinstance(number, int):
+    #        list_check_numbers.append(number)
+
+    list_check_numbers = [ n for n in list_numbers if isinstance(n, int) ]
 
     if len(list_check_numbers) > 1:
         list_check_numbers.sort()
