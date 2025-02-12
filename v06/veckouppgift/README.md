@@ -96,6 +96,8 @@ Gör en metod för varje funktion.
 
 Skriv enhetstester för varje funktion. Använd gärna TDD-metoden, att börja med testfallen innan du skriver koden.
 
+OBS!!! 'e3_bank_thinking_to_much' är jag och när jag faller ner i brunne, för överkomplicerat, avbryter innan skadan sker.  
+
 ---
 
 ### 4 Webbshop
