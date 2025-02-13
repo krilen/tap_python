@@ -32,7 +32,8 @@ class Products():
         if _data != None:
             self._products = _data["products"]
 
-    def menu_products(self):
+
+    def menu_products(self, cart):
         while True:
             something_went_wrong: bool = False
         
@@ -66,7 +67,7 @@ class Products():
                     if select_product_nr <= len(self._products):
 
                         product = Product(self._products[select_product_nr  -1]["id"])
-                        product.menu_product()
+                        cart = product.menu_product(cart)
 
                         del(product)
 
@@ -78,6 +79,7 @@ class Products():
                 print()
                 print(" This is not a valid selection.")
 
+        return cart
 
     # Gets called when the class get deleted
     def __del__(self):

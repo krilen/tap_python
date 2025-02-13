@@ -1,6 +1,7 @@
 from api.api import Api
 
 from typing import Any
+import uuid
 
 
 class Product():
@@ -27,7 +28,7 @@ class Product():
             self._product = _data
             
     
-    def menu_product(self):
+    def menu_product(self, cart):
         
         while True:
         
@@ -88,13 +89,22 @@ class Product():
                     break
             
                 case "c":
-                    #Add to cart
-                    break
+                    cart.shopping = {"id": self._product["id"], 
+                                     "title": self._product["title"],
+                                     "category": self._product["category"],
+                                     "count": 1, 
+                                     "price": self._product["price"], 
+                                     "total_price": 0}
+                    
+                    print()
+                    print(" The product has been added to your cart!")
             
                 case _:
                     print()
                     print(" This is not a valid selection.")
 
+        return cart
+    
 
     # Gets called when the class get deleted
     def __del__(self):

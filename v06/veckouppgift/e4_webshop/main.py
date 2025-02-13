@@ -1,4 +1,5 @@
 from product.product_category import ProductCategory
+from cart.cart import Cart
 
 import sys
 from typing import Any
@@ -12,7 +13,7 @@ def main():
         print("Sorry we are having some issues, try again later")
         sys.exit()
 
-    cart: list[dict[Any]] = []
+    cart = Cart()
 
     # Welcome menu
     print()
@@ -35,8 +36,10 @@ def main():
                 break
         
             case "p":
-                # The user selected to see the product category
                 cart = product_category.menu_product_categories(cart)
+
+            case "c":
+                cart.menu_cart()
 
             case _:
                 print()

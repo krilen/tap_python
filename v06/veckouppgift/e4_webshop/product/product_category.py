@@ -62,7 +62,7 @@ class ProductCategory():
                 else:
                     if select_category_nr <= len(self._product_categories):
                         products = Products(self._product_categories[select_category_nr -1])
-                        products.menu_products()
+                        cart = products.menu_products(cart)
 
                         del(products)
 
@@ -74,7 +74,6 @@ class ProductCategory():
                 print(" This is not a valid selection.")
 
         return cart
-
 
 
 if __name__ == "__main__":
