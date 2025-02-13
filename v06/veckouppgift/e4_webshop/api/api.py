@@ -1,6 +1,7 @@
 import requests
 from typing import Any
 
+
 class Api():
     """
     A class dedicated to handle API calls.
@@ -20,7 +21,6 @@ class Api():
         Return
         """
         try:
-
             response = requests.get(self._url)
 
             if response.status_code == 200:
@@ -28,7 +28,7 @@ class Api():
                 return data
             
             else:
-                print('Error:', response.status_code)
+                print("Error:", response.status_code)
                 return None
         
         except requests.exceptions.RequestException as e:
@@ -48,12 +48,5 @@ class Api():
 
 
 
-
-
-
-    
-    
-    
-    
 if __name__ == "__main__":
     print("Wrong file")

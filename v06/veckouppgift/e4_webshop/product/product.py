@@ -1,6 +1,7 @@
 from api.api import Api
+
 from typing import Any
-import math
+
 
 class Product():
     """
@@ -25,7 +26,6 @@ class Product():
         if _data != None:
             self._product = _data
             
-
     
     def menu_product(self):
         
@@ -92,20 +92,14 @@ class Product():
                     break
             
                 case _:
-   
                     print()
                     print(" This is not a valid selection.")
 
-    
 
     # Gets called when the class get deleted
     def __del__(self):
         del(self._product_id)
         del(self._product)
-
-
-
-
 
 
 

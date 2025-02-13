@@ -1,6 +1,7 @@
 from api.api import Api
 from product.products import Products
 
+
 class ProductCategory():
     """
     A class the handles different product classes that exists
@@ -33,7 +34,6 @@ class ProductCategory():
 
     def menu_product_categories(self, cart):
         while True:
-
             something_went_wrong: bool = False
 
             print()
@@ -53,7 +53,6 @@ class ProductCategory():
                 break
             
             else:
-
                 try:
                     select_category_nr = int(select_category)
 
@@ -62,7 +61,6 @@ class ProductCategory():
 
                 else:
                     if select_category_nr <= len(self._product_categories):
-
                         products = Products(self._product_categories[select_category_nr -1])
                         products.menu_products()
 
@@ -71,12 +69,12 @@ class ProductCategory():
                     else:
                         something_went_wrong = True
 
-
             if something_went_wrong:        
                 print()
                 print(" This is not a valid selection.")
 
         return cart
+
 
 
 if __name__ == "__main__":

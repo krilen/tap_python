@@ -42,10 +42,8 @@ def main():
                 print()
                 print(" This is not a valid selection.")
 
-
-
     print()
-    print(" Thanks for visiting our shop")
+    print(" Thank you for visiting our shop")
     sys.exit()
 
 

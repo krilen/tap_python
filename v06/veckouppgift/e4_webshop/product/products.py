@@ -1,6 +1,8 @@
 from api.api import Api
 from product.product import Product
+
 from typing import Any
+
 
 class Products():
     """
@@ -31,9 +33,7 @@ class Products():
             self._products = _data["products"]
 
     def menu_products(self):
-        
         while True:
-        
             something_went_wrong: bool = False
         
             print()
@@ -74,19 +74,15 @@ class Products():
                         something_went_wrong = True
 
 
-            if something_went_wrong:        
+            if something_went_wrong:
                 print()
                 print(" This is not a valid selection.")
-
 
 
     # Gets called when the class get deleted
     def __del__(self):
         del(self._product_category)
         del(self._products)
-
-
-
 
 
 
