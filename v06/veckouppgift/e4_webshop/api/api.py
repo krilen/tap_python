@@ -28,15 +28,15 @@ class Api():
                 return data
             
             else:
-                print("Error:", response.status_code)
+                print(" > Error:", response.status_code)
                 return None
         
         except requests.exceptions.RequestException as e:
-            print('Error:', e)
+            print(" > Error:", e)
             return None
         
         except:
-            print("Something else went wrong")
+            print(" > Error: Something else went wrong")
             return None
     
 

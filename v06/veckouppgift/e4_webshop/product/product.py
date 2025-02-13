@@ -94,14 +94,14 @@ class Product():
                                      "category": self._product["category"],
                                      "count": 1, 
                                      "price": self._product["price"], 
-                                     "total_price": 0}
+                                     "total_price": self._product["price"]}
                     
                     print()
-                    print(" The product has been added to your cart!")
+                    print(" > The product has been added to your cart!")
             
                 case _:
                     print()
-                    print(" This is not a valid selection.")
+                    print(" > This is not a valid selection.")
 
         return cart
     

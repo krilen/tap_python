@@ -43,7 +43,7 @@ def main():
 
             case _:
                 print()
-                print(" This is not a valid selection.")
+                print(" > This is not a valid selection.")
 
     print()
     print(" Thank you for visiting our shop")

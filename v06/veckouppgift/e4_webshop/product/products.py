@@ -13,7 +13,7 @@ class Products():
         self._product_category = product_category
         self._products = []
 
-        _url = self._product_category["url"] + "?limit=10&skip=0&select=id,title,price"
+        _url = self._product_category["url"] + "?limit=20&skip=0&select=id,title,price"
 
         _api = Api(_url)
         _data:dict[list[dict[Any]], int, int, int] = _api()
@@ -77,7 +77,7 @@ class Products():
 
             if something_went_wrong:
                 print()
-                print(" This is not a valid selection.")
+                print(" > This is not a valid selection.")
 
         return cart
 

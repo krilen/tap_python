@@ -71,7 +71,7 @@ class ProductCategory():
 
             if something_went_wrong:        
                 print()
-                print(" This is not a valid selection.")
+                print(" > This is not a valid selection.")
 
         return cart
 
