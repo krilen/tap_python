@@ -28,7 +28,7 @@ class Products():
             something_went_wrong: bool = False
         
             print()
-            print(f" Category: {self._product_category["name"]}")
+            print(f" Category: {self._product_category['name']}")
             
             if len(self._products) == 0:
                 print("  - There are no products in this category")
