@@ -89,7 +89,7 @@ class Order():
             print()
             print(" Order")
             print(f"  ID: {self._orders[order_id]['order_id']}")
-            print(f"  Order date: {self._orders[order_id]['timestamp'].strftime("%Y-%m-%d %H:%M")}")
+            print(f"  Order date: {self._orders[order_id]['timestamp'].strftime('%Y-%m-%d %H:%M')}")
             print(f"  Number of items: {self._orders[order_id]['product_count']}")
             print(f"  Order value: ${self._orders[order_id]['total_price']}")
             print()
