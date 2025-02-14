@@ -48,7 +48,7 @@ class Order():
             else:
                 print(" Orders")
                 for i, order in enumerate(self._orders, start=1):
-                    print(f"  - {i}. {order['timestamp'].strftime("%Y-%m-%d %H:%M")}, {order['product_count']} item{"s" if order['product_count'] > 1 else ""}, ${order['total_price']}")                    
+                    print(f"  - {i}. {order['timestamp'].strftime('%Y-%m-%d %H:%M')}, {order['product_count']} item{'s' if order['product_count'] > 1 else ''}, ${order['total_price']}")                    
                 
             print()
             
