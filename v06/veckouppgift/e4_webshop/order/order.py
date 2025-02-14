@@ -113,7 +113,8 @@ class Order():
                 case "f":
                     self._orders.pop(order_id)
                     
-                    print(" > Order was removed.")
+                    print()
+                    print(" > Order was fullfilled and removed.")
                     break
                 
                 case _:
