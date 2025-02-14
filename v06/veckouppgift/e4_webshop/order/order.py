@@ -119,3 +119,8 @@ class Order():
                 case _:
                     print()
                     print(" > That was not a valid selection.")
+
+
+
+if __name__ == "__main__":
+    print("Wrong file")
