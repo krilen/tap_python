@@ -91,7 +91,7 @@ class Cart():
                 
                 for i, item in enumerate(self._cart, start=1):
                     print(f"  - {i}. {item['title']} ({item['category'].title()})")
-                    print(f"       {" " if i > 9 else ""}${item['price']} x {item['count']} = ${item['sum_price']}")
+                    print(f"       {' ' if i > 9 else ''}${item['price']} x {item['count']} = ${item['sum_price']}")
                 
                 print()
                 print(f" The total sum is: ${self.__total_price}")
