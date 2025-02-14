@@ -17,17 +17,7 @@ class Products():
 
         _api = Api(_url)
         _data:dict[list[dict[Any]], int, int, int] = _api()
-        
-        #_api = [12]
         del(_api)
-
-        #_data = {'products': [
-        #            {'id': 6, 'title': 'Calvin Klein CK One', 'price': 49.99}, 
-        #            {'id': 7, 'title': 'Chanel Coco Noir Eau De', 'price': 129.99}, 
-        #            {'id': 8, 'title': "Dior J'adore", 'price': 89.99}, 
-        #            {'id': 9, 'title': 'Dolce Shine Eau de', 'price': 69.99}, 
-        #            {'id': 10, 'title': 'Gucci Bloom Eau de', 'price': 79.99}
-        #            ], 'total': 5, 'skip': 0, 'limit': 5}
 
         if _data != None:
             self._products = _data["products"]
@@ -38,7 +28,7 @@ class Products():
             something_went_wrong: bool = False
         
             print()
-            print(f" Category: {self._product_category["name"]!r}")
+            print(f" Category: {self._product_category["name"]}")
             
             if len(self._products) == 0:
                 print("  - There are no products in this category")
@@ -47,8 +37,8 @@ class Products():
                     print(f"  - {i}. {product['title']}, ${product['price']}")           
                 
             print()
-            print(f" * Press 'e' to exit the products for category {self._product_category["name"]!r}")
-            print(" * Press the above number to see the product details")
+            print(" * Press the above number to see the product details.")
+            print(" * Press 'e' to exit to the product categories.")
             print()
             
             select_product = input(" Enter your selection >> ").casefold()
@@ -77,7 +67,7 @@ class Products():
 
             if something_went_wrong:
                 print()
-                print(" > This is not a valid selection.")
+                print(" > That was not a valid selection.")
 
         return cart
 

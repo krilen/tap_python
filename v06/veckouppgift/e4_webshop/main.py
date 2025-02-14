@@ -1,5 +1,6 @@
 from product.product_category import ProductCategory
 from cart.cart import Cart
+from order.order import Order
 
 import sys
 from typing import Any
@@ -14,6 +15,7 @@ def main():
         sys.exit()
 
     cart = Cart()
+    order = Order()
 
     # Welcome menu
     print()
@@ -39,11 +41,14 @@ def main():
                 cart = product_category.menu_product_categories(cart)
 
             case "c":
-                cart.menu_cart()
+                cart.menu_cart_all(order)
+                
+            case "o":
+                order.menu_order_all()
 
             case _:
                 print()
-                print(" > This is not a valid selection.")
+                print(" > That was not a valid selection.")
 
     print()
     print(" Thank you for visiting our shop")

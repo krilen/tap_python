@@ -1,7 +1,6 @@
 from api.api import Api
 from product.products import Products
 
-
 class ProductCategory():
     """
     A class the handles different product classes that exists
@@ -12,12 +11,7 @@ class ProductCategory():
         
         _api = Api("https://dummyjson.com/products/categories")
         _data = _api()
-        
-        #_api = [12]
         del(_api)
-
-        #_data = [{"slug":"beauty","name":"Beauty","url":"https://dummyjson.com/products/category/beauty"},
-        #        {"slug":"fragrances","name":"Fragrances","url":"https://dummyjson.com/products/category/fragrances"}]
 
         if _data != None:        
             self._product_categories = _data
@@ -33,6 +27,7 @@ class ProductCategory():
     
 
     def menu_product_categories(self, cart):
+        
         while True:
             something_went_wrong: bool = False
 
@@ -43,9 +38,10 @@ class ProductCategory():
                 print(f"  - {i}. {category['name']}")
 
             print()
-            print(" * Press 'e' to exit the product categories")
-            print(" * Press the above number to see products in that category")
+            print(" * Press the above number to see products in that category.")
+            print(" * Press 'e' to exit to the main menu.")
             print()
+            
 
             select_category = input(" Enter your selection >> ").casefold()
 
@@ -71,7 +67,7 @@ class ProductCategory():
 
             if something_went_wrong:        
                 print()
-                print(" > This is not a valid selection.")
+                print(" > That was not a valid selection.")
 
         return cart
 
