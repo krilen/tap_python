@@ -78,7 +78,7 @@ class Order():
                 for i, order in enumerate(self.orders, start=1):
                 
                     print(f" - {i}. Order ID: {str(order['order_id'])}")
-                    print(f"      Date: {order['timestamp'].strftime("%Y-%m-%d %H:%M:%S")}")
+                    print(f"      Date: {order['timestamp'].strftime('%Y-%m-%d %H:%M:%S')}")
                     print(f"      Items count: {order['count_items']}")
                     print(f"      Sum of items: {order['sum_items']}")
                     print()
