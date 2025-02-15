@@ -12,7 +12,7 @@ Ytterligare krav
 """
 
 import pytest
-from e3_bank.bank import *
+from bank import *
 
 @pytest.mark.parametrize("amount, invoice, payable", [(100, 110, False),
                                                       (0, 10, False),

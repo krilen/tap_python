@@ -14,7 +14,7 @@ Ytterligare krav
 """
 
 import pytest
-from e3_bank.bank import *
+from bank import *
 
 
 @pytest.mark.parametrize("amount, withdraw, expected_balance", [(100, 50, 50.00), 
