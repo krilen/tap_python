@@ -37,9 +37,6 @@ def main():
                 print()
                 print(" Not a valid selection!")
                 
-            
-
-    
     print()
     print(" Have a nice day")
     print()
