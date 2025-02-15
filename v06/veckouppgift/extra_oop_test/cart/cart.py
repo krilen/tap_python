@@ -82,9 +82,6 @@ class Cart():
                 _new_cart.append(_item)
                 
             self._cart = _new_cart
-            
-            
-        print(self.shopping_cart)
 
             
     # Sum the cart
@@ -205,10 +202,10 @@ class Cart():
                     else:
                         _something_went_wrong = True
             
-        
             if _something_went_wrong:
                 print()
                 print(" > Not a valid selection!")
+
         
         
 if __name__ == "__main__":
