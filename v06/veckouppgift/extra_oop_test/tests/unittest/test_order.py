@@ -13,14 +13,17 @@ def test_order__class_init_order_list():
 # Test the getter and setter for the order list in the order class
 @pytest.mark.parametrize("data", [([1]), ([1,2,5]), ([1,2,3,4,5,6])])
 def test_order__order_list_get_set(data):
+    
+    _data = data.copy()
+    _data.sort()
+    
     o = Order()
     
     # Setter
-    for d in data:
+    for d in _data:
         o.orders = d
 
-        
-    assert o.orders == data # Getter compair to expected
+    assert o.orders == _data # Getter compair to expected
 
 
 # Test the count of the number of orders

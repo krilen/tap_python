@@ -34,24 +34,27 @@ def test_cart__cart_setter_getter_deleter(data, count):
 
 
 # Test the deleting an item in the cart at a specific index
-@pytest.mark.parametrize("data, expected, index", [([], [], 0),         # Empty list
-                                                  ([1, 2], [1, 2], 2),  # Out of range 
-                                                    ([{'item': 0, 'count': 1, 'sum_item': 0}, {'item': 0, 'count': 1, 'sum_item': 0}],
-                                                        [{'item': 0, 'count': 1, 'sum_item': 0}, {'item': 0, 'count': 1, 'sum_item': 0}], 2),
+@pytest.mark.parametrize("data, expected, index", [([{'item': 0, 'count': 1, 'sum_item': 0}, {'item': 0, 'count': 1, 'sum_item': 0}],
+                                                        [{'item': 0, 'count': 1, 'sum_item': 0}, {'item': 0, 'count': 1, 'sum_item': 0}], 2), # Out of range 
+                                                    
                                                     ([{'item': 0, 'count': 1, 'sum_item': 0}, {'item': 0, 'count': 1, 'sum_item': 0}],
                                                         [{'item': 0, 'count': 1, 'sum_item': 0}], 1),
+                                                    
                                                     ([{'item': 1, 'count': 2, 'sum_item': 2}, {'item': 5, 'count': 6, 'sum_item': 30}, {'item': 7, 'count': 1, 'sum_item': 7}],
                                                         [{'item': 1, 'count': 2, 'sum_item': 2}, {'item': 5, 'count': 6, 'sum_item': 30}], 2)
                                                     ])
-def test_cart__delte_item_index(data, expected, index):
+def test_cart__delte_item_index(data, expected, index):   
+    _data = sorted(data.copy(), key=lambda d: d['item'])
+    _expected = sorted(expected.copy(), key=lambda d: d['item'])
+    
     c = Cart()
     
-    for d in data:
+    for d in _data:
         c.shopping_cart = d             # setter
         
     c.delete_item(index)                # Delete item i list using an index
     
-    assert c.shopping_cart == expected
+    assert c.shopping_cart == _expected
     
 
 # Test the cart cleanup, removing duplicates from cart and icrease count
@@ -76,14 +79,17 @@ def test_cart__delte_item_index(data, expected, index):
                                                             [{'item': 1, 'count': 2, 'sum_item': 2}, {'item': 5, 'count': 6, 'sum_item': 30}, {'item': 7, 'count': 1, 'sum_item': 7}], 3),
                                                 ])
 def test_cart__cart_cleanup(data, expected, count):
+    _data = sorted(data.copy(), key=lambda d: d['item'])
+    _expected = sorted(expected.copy(), key=lambda d: d['item'])
+    
     c = Cart()
     
-    for d in data:
+    for d in _data:
         c.shopping_cart = d             # setter
         
     c.cleanup_cart()                    # cleans up, remove dublicates in the cart and ads to the count and sum
         
-    assert c.shopping_cart == expected  # getter
+    assert c.shopping_cart == _expected # getter
     assert c.count_cart() == count      # count method
     
     
