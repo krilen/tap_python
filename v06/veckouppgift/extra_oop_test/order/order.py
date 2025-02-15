@@ -40,6 +40,15 @@ class Order():
     def insert_order(self, cart: list[dict[Any]]):
         """
         Insert an order from a cart. The carts calls the method in order
+        
+        Input from cart
+            '[{'item': <int>, 'count': <int>, 'sum_item': <int>}, ...]'
+        Many dict (objects) within a list
+        
+        Inserted into order
+            [{'order_id': UUID('847fe6d3-5402-4a95-8cca-a36764bbbef6'), 'items': [{'item': 9, 'count': 1, 'sum_item': 9}], 'count_items': 4, 'sum_items': 15, 'timestamp': datetime.datetime(2025, 2, 15, 16, 8, 0, 463768)}]
+        The dict from the cart gets added to items and additional stuff like uuid, count, sum and date also gets added
+        
         """
         _count_cart_items = sum([c["count"] for c in cart])
         _sum_cart = sum([c["sum_item"] for c in cart])
@@ -52,6 +61,7 @@ class Order():
         """
         Method to view all of the orders
         """
+        
         while True:
             
             _something_went_wrong = False
@@ -67,10 +77,11 @@ class Order():
             else:
                 for i, order in enumerate(self.orders, start=1):
                 
-                    print(f" - {i}. {str(order['order_id'])}")
-                    print(f"      {order['timestamp'].strftime("%Y-%m-%d %H:%M:%S")}")
+                    print(f" - {i}. Order ID: {str(order['order_id'])}")
+                    print(f"      Date: {order['timestamp'].strftime("%Y-%m-%d %H:%M:%S")}")
                     print(f"      Items count: {order['count_items']}")
                     print(f"      Sum of items: {order['sum_items']}")
+                    print()
                     print("      Items")
                     
                     for item in order['items']:

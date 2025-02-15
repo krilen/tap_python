@@ -42,7 +42,7 @@ class Cart():
     # Cart count
     def count_cart(self) -> int:
         """
-        Returs the number of items in the cart
+        Returns the number of items in the cart
         """
         return len(self.shopping_cart)
     
@@ -50,11 +50,13 @@ class Cart():
     # Delete item in the cart 
     def delete_item(self, index: int) -> None:
         """
-        Removes an items at a certain point (index)
-        And calls for the sum of items
+        Removes an items at a certain index and calls for the sum of items to be calculated
         """
-        self._cart.pop(index)
-        self.sum_cart()
+        _count: int = self.count_cart()
+        
+        if _count and index < _count:
+            self._cart.pop(index)
+            self.calc_sum_cart()
     
     
     # Clean up the cart
@@ -80,10 +82,13 @@ class Cart():
                 _new_cart.append(_item)
                 
             self._cart = _new_cart
+            
+            
+        print(self.shopping_cart)
 
             
     # Sum the cart
-    def sum_cart(self):
+    def calc_sum_cart(self):
         """
         Method to sum up the items in the cart
         """
@@ -143,7 +148,7 @@ class Cart():
         """
         
         self.cleanup_cart()
-        self.sum_cart()
+        self.calc_sum_cart()
         
         while True:
             
