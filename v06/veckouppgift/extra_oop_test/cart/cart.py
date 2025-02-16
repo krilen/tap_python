@@ -129,6 +129,10 @@ class Cart():
                         print()
                         print(" > ERROR: Item was not added to the cart")
                         
+                    else:
+                        print()
+                        print(f" > Item was added to the cart")
+                        
                 case "c":
                     print()
                     print(f" > The number of items in the cart is: {self.count_cart()}")
