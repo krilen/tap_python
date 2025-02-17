@@ -9,7 +9,7 @@ class Country:
         self.__name = name
         self.__population = pop
         self._area = area   # Sätter det inte som hemligt utan bara som info att detta har man inget att göra med
-        self._language = [] # Miss av mig självklart skall det vara 'self._language' och inte 'self.language'
+        self.language = []
         
         
     def print_info(self):
@@ -23,7 +23,7 @@ class Country:
         
         print()
         
-        if self.language:
+        if self._language:
             print("    - Officiella språk i", end=" ")
             print(self.__name, "är:", end=" ")
             print(*self.language, sep=",")
