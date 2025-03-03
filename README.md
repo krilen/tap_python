@@ -18,3 +18,9 @@ First TDD
 Veckouppgift  
 05-TDD  
 
+### Vecka 6, 10/2
+Veckouppgift  
+
+### Vecka 7, 17/2
+Fake  
+Ingen veckouppgift pga inlämnings uppgift  
